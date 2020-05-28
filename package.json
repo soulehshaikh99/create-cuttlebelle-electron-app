@@ -6,17 +6,22 @@
   "license": "MIT",
   "private": false,
   "build": {
-    "icon": "public/favicon.png",
-    "productName": "Elm and Electron App",
+    "icon": "assets/favicon.png",
+    "productName": "Cuttlebelle and Electron App",
     "files": [
-      "site/**/*",
-      "!site/favicon.png",
+      "build/**/*",
+      "!build/favicon.png",
       "main.js"
     ]
   },
+  "cuttlebelle": {
+    "folder": {
+      "site": "build/"
+    }
+  },
   "scripts": {
+    "start": "cuttlebelle watch",
     "build": "cuttlebelle",
-    "watch": "cuttlebelle watch",
     "docs": "cuttlebelle docs",
     "version": "cuttlebelle --version",
     "help": "cuttlebelle help",
@@ -28,11 +33,10 @@
   },
   "devDependencies": {
     "concurrently": "^5.2.0",
-    "electron": "^8.3.0",
-    "electron-builder": "^22.6.0",
+    "cuttlebelle": "^1.0.0-alpha.69",
+    "electron": "^9.0.0",
+    "electron-builder": "^22.7.0",
     "wait-on": "^5.0.0"
   },
-  "dependencies": {
-    "electron-serve": "^1.0.0"
-  }
+  "dependencies": {}
 }
