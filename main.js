@@ -2,7 +2,7 @@
 const { app, BrowserWindow, dialog } = require('electron');
 const path = require('path');
 const serve = require('electron-serve');
-const loadURL = serve({ directory: 'site' });
+const loadURL = serve({ directory: 'build' });
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -21,9 +21,9 @@ function createWindow() {
             nodeIntegration: true
         },
         // Use this in development mode.
-        // icon: isDev() ? path.join(process.cwd(), 'src/images/gatsby-icon.png') : path.join(__dirname, 'public/icons/icon-512x512.png'),
+        icon: isDev() ? path.join(process.cwd(), 'assets/favicon.png') : path.join(__dirname, 'assets/favicon.png'),
         // Use this in production mode.
-        // icon: path.join(__dirname, 'public/icons/icon-512x512.png'),
+        // icon: path.join(__dirname, 'assets/favicon.png'),
         show: false
     });
 
