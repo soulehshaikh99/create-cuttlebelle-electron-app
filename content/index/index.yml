@@ -17,3 +17,4 @@ footer:                # Our footer part of the layout
 
 # All variables declared in the index.yml are accessible
 # inside each partial via props._pages[ props.ID ]
+
