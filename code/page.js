@@ -64,3 +64,4 @@ Page.propTypes = {
 Page.defaultProps = {};
 
 export default Page;
+
