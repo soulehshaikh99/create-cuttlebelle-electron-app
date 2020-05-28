@@ -1,5 +1,5 @@
 <div align="center">
-<img alt="Electron Elm" src="https://raw.githubusercontent.com/soulehshaikh99/repo/master/svg/Electron_Elm.svg" width="550" />
+<img alt="Electron Elm" src="https://raw.githubusercontent.com/soulehshaikh99/repo/master/svg/Electron_Cuttlebelle.svg" width="550" />
 </div>
 <br />
 The boilerplate code to get started creating Cross-platform Desktop Apps with Electron and Elm JS as front-end technology.
