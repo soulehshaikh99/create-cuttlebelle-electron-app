@@ -63,7 +63,7 @@ $ yarn electron-pack # or npm run electron-pack
 
 ### 💫 Create this boilerplate from scratch (Manual Setup)
 
-#### 1) Install Necessary Packages Globally
+#### 1) Start by installing `cuttlebelle` globally
 ```bash
 $ yarn global add cuttlebelle
 # npm i -g cuttlebelle
