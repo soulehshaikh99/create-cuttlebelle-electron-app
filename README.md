@@ -273,7 +273,7 @@ $ yarn electron-pack # or npm run electron-pack
 ### 💯 Result
 
 <div align="center">
-<img alt="Electron Cuttlebelle" src="https://raw.githubusercontent.com/soulehshaikh99/assets/master/create-electron-framework-app/readme/png/create-elm-electron-app.png" />
+<img alt="Electron Cuttlebelle" src="https://raw.githubusercontent.com/soulehshaikh99/assets/master/create-electron-framework-app/readme/png/create-cuttlebelle-electron-app.png" />
 </div>
 
 <h3>😍 Made with ❤️ from Souleh</h3>
