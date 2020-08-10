@@ -17,7 +17,7 @@ The boilerplate code to get started creating Cross-platform Desktop Apps with El
 
 ## ✒️ Overview
 
-The aim of this project is to provide Web Developers using `Elm JS` the power to create cross-platform desktop apps using `electron`.
+The aim of this project is to provide Web Developers using `Cuttlebelle` the power to create cross-platform desktop apps using `electron`.
 
 #### 🧐 What packages does the project use?
 
