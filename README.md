@@ -4,7 +4,7 @@ cuttlebelle init
 cuttlebelle
 
 <div align="center">
-<img alt="Electron Cuttlebelle" src="https://raw.githubusercontent.com/soulehshaikh99/assets/master/create-electron-framework-app/readme/svg/Electron_Cuttlebelle.svg" width="580" />
+<img alt="Electron Cuttlebelle Banner" src="https://raw.githubusercontent.com/soulehshaikh99/assets/master/create-electron-framework-app/readme/svg/Electron_Cuttlebelle.svg" width="580" />
 </div>
 <br />
 The boilerplate code to get started creating Cross-platform Desktop Apps with Electron and Elm JS as front-end technology.
@@ -273,7 +273,7 @@ $ yarn electron-pack # or npm run electron-pack
 ### 💯 Result
 
 <div align="center">
-<img alt="Electron Cuttlebelle" src="https://raw.githubusercontent.com/soulehshaikh99/assets/master/create-electron-framework-app/readme/png/create-cuttlebelle-electron-app.png" />
+<img alt="Electron Cuttlebelle Window Screeenshot" src="https://raw.githubusercontent.com/soulehshaikh99/assets/master/create-electron-framework-app/readme/png/create-cuttlebelle-electron-app.png" />
 </div>
 
 <h3>😍 Made with ❤️ from Souleh</h3>
