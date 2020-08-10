@@ -1,13 +1,8 @@
-yarn init
-yarn add --dev cuttlebelle
-cuttlebelle init
-cuttlebelle
-
 <div align="center">
-<img alt="Electron Cuttlebelle Banner" src="https://raw.githubusercontent.com/soulehshaikh99/assets/master/create-electron-framework-app/readme/svg/Electron_Cuttlebelle.svg" width="580" />
+<img alt="Electron Cuttlebelle Crossover Banner" src="https://raw.githubusercontent.com/soulehshaikh99/assets/master/create-electron-framework-app/readme/svg/Electron_Cuttlebelle.svg" width="580" />
 </div>
 <br />
-The boilerplate code to get started creating Cross-platform Desktop Apps with Electron and Elm JS as front-end technology.
+The boilerplate code to get started creating Cross-platform Desktop Apps with Electron and Cuttlebelle as front-end technology.
 <br />
 <br />
 <div align="center">
@@ -32,7 +27,7 @@ The aim of this project is to provide Web Developers using `Elm JS` the power to
 
 **`electron-serve`** is used for Static file serving for Electron apps.
 
-**`elm`** is a delightful language with features like No Runtime Exceptions, Great Performance, Enforced Semantic Versioning, Small Assets and Javascript Interoperability.
+**`cuttlebelle`** is a static site generator that uses react for layouts and let's you use one layout per page-partial and cleanly separates content from code.
 
 **`concurrently`** is used to run multiple commands concurrently.
 
@@ -49,12 +44,12 @@ But I strongly recommend using <em>yarn</em> as it is a better choice when compa
 ```bash
 # Clone the Project
 # GitHub CLI Users
-$ gh repo clone https://github.com/soulehshaikh99/create-elm-electron-app.git
+$ gh repo clone https://github.com/soulehshaikh99/create-cuttlebelle-electron-app.git
 # or Normal Git Users
-$ git clone https://github.com/soulehshaikh99/create-elm-electron-app.git
+$ git clone https://github.com/soulehshaikh99/create-cuttlebelle-electron-app.git
 
 # Switch location to the cloned directory
-$ cd create-elm-electron-app
+$ cd create-cuttlebelle-electron-app
 
 # Install dependencies
 $ yarn # or npm install
@@ -68,28 +63,29 @@ $ yarn electron-pack # or npm run electron-pack
 
 ### 💫 Create this boilerplate from scratch (Manual Setup)
 
-#### 1) Create an Elm project using scaffolding tool create-elm-app.
-
+#### 1) Install Necessary Packages Globally
 ```bash
-$ yarn create elm-app create-elm-electron-app
-# npx create-elm-app create-elm-electron-app
+$ yarn global add cuttlebelle
+# npm i -g cuttlebelle
+``` 
+
+#### 2) Create a project directory and switch location to it.
+```bash
+$ mkdir create-cuttlebelle-electron-app
+$ cd create-cuttlebelle-electron-app
 ```
 
-#### 2) Change Directory
-
-```bash
-$ cd create-elm-electron-app
-```
-
-#### 3) Download the app icon
-
-[favicon.png](https://raw.githubusercontent.com/soulehshaikh99/create-elm-electron-app/master/public/favicon.png) and place it in the public directory.
-
-#### 4) Initailize project with your favourite package manager
+#### 3) Initailize project with your favourite package manager
 
 ```bash
 # set entry point to main.js
 $ yarn init # or npm init
+```
+
+#### 4) Initialize project directory using cuttlebelle cli.
+
+```bash
+$ cuttlebelle init
 ```
 
 #### 5) Install Development Dependencies
@@ -98,6 +94,10 @@ $ yarn init # or npm init
 $ yarn add --dev electron electron-builder wait-on concurrently
 # npm i -D electron electron-builder wait-on concurrently
 ```
+
+#### 6) Download the app icon
+
+[favicon.png](https://raw.githubusercontent.com/soulehshaikh99/assets/master/framework-icons/cuttlebelle/favicon.png) and place it in the assets directory.
 
 #### 6) Install Production Dependency
 
@@ -112,118 +112,116 @@ $ yarn add electron-serve # or npm i electron-serve
   "electron-serve": "^1.0.0"
 },
 "devDependencies": {
-  "concurrently": "^5.2.0",
-  "electron": "^8.2.3",
-  "electron-builder": "^22.5.1",
-  "wait-on": "^4.0.2"
+  "concurrently": "^5.3.0",
+  "electron": "^9.2.0",
+  "electron-builder": "^22.8.0",
+  "wait-on": "^5.2.0"
+},
+```
+
+#### 9) Paste cuttlebelle configuration in package.json file
+
+```bash
+# Adding this configuration makes sure the browser will not automatically open http://localhost:8080/.
+"cuttlebelle": {
+  "site": {
+    "browserSync": {
+      "open": false
+    }
+  }
 }
-```
-
-#### 8) Create .env file
-
-```bash
-$ notepad.exe .env # Windows Users
-$ touch .env # Linux and macOS Users
-```
-
-#### 9) Paste this in .env file
-
-```bash
-# As `create-elm-app` is based on `create-react-app` we can configure things.
-# This suppresses auto-opening `localhost:3000` on the browser
-BROWSER=none
 ```
 
 #### 10) Create main.js file (serves as entry point for Electron App's Main Process)
 
 ```bash
-$ notepad.exe main.js # Windows Users
-$ touch main.js # Linux and macOS Users
+# Windows Users
+$ fsutil file createnew main.js 0
+# notepad main.js 
+
+# Linux and macOS Users
+$ touch main.js
 ```
 
 #### 11) Paste the below code in main.js file
 
 ```js
 // Modules to control application life and create native browser window
-const { app, BrowserWindow } = require("electron");
-const path = require("path");
-const serve = require("electron-serve");
-const loadURL = serve({ directory: "build" });
+const { app, BrowserWindow, dialog } = require('electron');
+const path = require('path');
+const serve = require('electron-serve');
+const loadURL = serve({ directory: 'site' });
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 
 function isDev() {
-  return !app.isPackaged;
+    return !app.isPackaged;
 }
 
 function createWindow() {
-  // Create the browser window.
-  mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
-      nodeIntegration: true,
-    },
-    // Use this in development mode.
-    icon: isDev()
-      ? path.join(process.cwd(), "public/favicon.png")
-      : path.join(__dirname, "build/favicon.png"),
-    // Use this in production mode.
-    // icon: path.join(__dirname, 'build/favicon.png'),
-    show: false,
-  });
+    // Create the browser window.
+    mainWindow = new BrowserWindow({
+        width: 800,
+        height: 600,
+        webPreferences: {
+            nodeIntegration: true
+        },
+        // Use this in development mode.
+        icon: isDev() ? path.join(process.cwd(), 'assets/favicon.png') : path.join(__dirname, 'site/assets/favicon.png'),
+        // Use this in production mode.
+        // icon: path.join(__dirname, 'site/assets/favicon.png'),
+        show: false
+    });
 
-  // This block of code is intended for development purpose only.
-  // Delete this entire block of code when you are ready to package the application.
-  if (isDev()) {
-    mainWindow.loadURL("http://localhost:3000/");
-  } else {
-    //Do not delete this statement, Use this piece of code when packaging app for production environment
-    loadURL(mainWindow);
-  }
+    // This block of code is intended for development purpose only.
+    // Delete this entire block of code when you are ready to package the application.
+    if (isDev()) {
+        mainWindow.loadURL('http://localhost:8080/');
+    } else {
+        loadURL(mainWindow);
+    }
+    
+    // Uncomment the following line of code when app is ready to be packaged.
+    // loadURL(mainWindow);
 
-  // Uncomment the following line of code when app is ready to be packaged.
-  // loadURL(mainWindow);
+    // Open the DevTools and also disable Electron Security Warning.
+    // process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true;
+    // mainWindow.webContents.openDevTools();
 
-  // Open the DevTools and also disable Electron Security Warning.
-  // process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true;
-  // mainWindow.webContents.openDevTools();
+    // Emitted when the window is closed.
+    mainWindow.on('closed', function () {
+        // Dereference the window object, usually you would store windows
+        // in an array if your app supports multi windows, this is the time
+        // when you should delete the corresponding element.
+        mainWindow = null
+    });
 
-  // Emitted when the window is closed.
-  mainWindow.on("closed", function () {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
-    mainWindow = null;
-  });
-
-  // Emitted when the window is ready to be shown
-  // This helps in showing the window gracefully.
-  mainWindow.once("ready-to-show", () => {
-    mainWindow.show();
-  });
+    // Emitted when the window is ready to be shown
+    // This helps in showing the window gracefully.
+    mainWindow.once('ready-to-show', () => {
+        mainWindow.show()
+    });
 }
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on("ready", createWindow);
+app.on('ready', createWindow);
 
 // Quit when all windows are closed.
-app.on("window-all-closed", function () {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
-  if (process.platform !== "darwin") app.quit();
+app.on('window-all-closed', function () {
+    // On macOS it is common for applications and their menu bar
+    // to stay active until the user quits explicitly with Cmd + Q
+    if (process.platform !== 'darwin') app.quit()
 });
 
-app.on("activate", function () {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
-  if (mainWindow === null) createWindow();
+app.on('activate', function () {
+    // On macOS it's common to re-create a window in the app when the
+    // dock icon is clicked and there are no other windows open.
+    if (mainWindow === null) createWindow()
 });
-
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 ```
@@ -232,13 +230,12 @@ app.on("activate", function () {
 
 ```bash
 "scripts": {
-  "start": "elm-app start",
-  "build": "elm-app build",
-  "test": "elm-app test",
-  "eject": "elm-app eject",
-  "electron": "wait-on http://localhost:3000 && electron .",
-  "electron-dev": "concurrently \"yarn start\" \"yarn electron\"",
-  "preelectron-pack": "yarn build",
+  "start": "cuttlebelle watch --silent",
+  "build": "cuttlebelle",
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "electron": "wait-on http://localhost:8080/ && electron .",
+  "electron-dev": "concurrently \"yarn run start\" \"yarn run electron\"",
+  "preelectron-pack": "yarn run build",
   "electron-pack": "electron-builder"
 }
 ```
@@ -250,14 +247,14 @@ app.on("activate", function () {
 ```bash
 "main": "main.js", # please verify entry point is set to main.js 
 "build": {
-  "icon": "public/favicon.png",
-  "productName": "Elm and Electron App",
+  "icon": "assets/favicon.png",
+  "productName": "Cuttlebelle and Electron App",
   "files": [
-    "build/**/*",
-    "!build/favicon.png",
+    "site/**/*",
+    "!site/assets/favicon.png",
     "main.js"
   ]
-},
+}
 ```
 
 #### 12) Test drive your app
@@ -283,3 +280,8 @@ $ yarn electron-pack # or npm run electron-pack
 
 <h3>📋 License: </h3>
 Licensed under the <a href="https://github.com/soulehshaikh99/create-cuttlebelle-electron-app/blob/master/LICENSE">MIT License</a>.
+
+yarn init
+yarn add --dev cuttlebelle
+cuttlebelle init
+cuttlebelle
