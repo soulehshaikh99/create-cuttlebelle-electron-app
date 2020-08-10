@@ -251,7 +251,6 @@ app.on('activate', function () {
   "productName": "Cuttlebelle and Electron App",
   "files": [
     "site/**/*",
-    "!site/assets/favicon.png",
     "main.js"
   ]
 }
