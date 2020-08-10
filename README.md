@@ -88,22 +88,22 @@ $ yarn init # or npm init
 $ cuttlebelle init
 ```
 
-#### 5) Install Development Dependencies
+#### 5) Download the app icon
+
+[favicon.png](https://raw.githubusercontent.com/soulehshaikh99/create-cuttlebelle-electron-app/master/assets/favicon.png) and place it in the assets directory.
+
+#### 6) Install Development Dependencies
 
 ```bash
 $ yarn add --dev electron electron-builder wait-on concurrently
 # npm i -D electron electron-builder wait-on concurrently
 ```
 
-#### 6) Install Production Dependency
+#### 7) Install Production Dependency
 
 ```bash
 $ yarn add electron-serve # or npm i electron-serve
 ```
-
-#### 7) Download the app icon
-
-[favicon.png](https://raw.githubusercontent.com/soulehshaikh99/create-cuttlebelle-electron-app/master/assets/favicon.png) and place it in the assets directory.
 
 #### 8) Your dependencies should look something like this
 
