@@ -97,7 +97,7 @@ $ yarn add --dev electron electron-builder wait-on concurrently
 
 #### 6) Download the app icon
 
-[favicon.png](https://raw.githubusercontent.com/soulehshaikh99/assets/master/framework-icons/cuttlebelle/favicon.png) and place it in the assets directory.
+[favicon.png](https://raw.githubusercontent.com/soulehshaikh99/create-cuttlebelle-electron-app/master/assets/favicon.png) and place it in the assets directory.
 
 #### 6) Install Production Dependency
 
