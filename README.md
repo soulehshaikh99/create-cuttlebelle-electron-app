@@ -95,17 +95,17 @@ $ yarn add --dev electron electron-builder wait-on concurrently
 # npm i -D electron electron-builder wait-on concurrently
 ```
 
-#### 6) Download the app icon
-
-[favicon.png](https://raw.githubusercontent.com/soulehshaikh99/create-cuttlebelle-electron-app/master/assets/favicon.png) and place it in the assets directory.
-
 #### 6) Install Production Dependency
 
 ```bash
 $ yarn add electron-serve # or npm i electron-serve
 ```
 
-#### 7) Your dependencies should look something like this
+#### 7) Download the app icon
+
+[favicon.png](https://raw.githubusercontent.com/soulehshaikh99/create-cuttlebelle-electron-app/master/assets/favicon.png) and place it in the assets directory.
+
+#### 8) Your dependencies should look something like this
 
 ```json
 "dependencies": {
@@ -240,7 +240,7 @@ app.on('activate', function () {
 }
 ```
 
-#### 11) Add the following Electron Configuration in package.json
+#### 13) Add the following Electron Configuration in package.json
 
 **Note:** build configuration is used by electron-builder, modify it if you wish to add more packaging and native distribution options for different OS Platforms.
 
@@ -257,7 +257,7 @@ app.on('activate', function () {
 }
 ```
 
-#### 12) Test drive your app
+#### 14) Test drive your app
 
 ```bash
 # Run your app
