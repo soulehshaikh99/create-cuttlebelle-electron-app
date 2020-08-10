@@ -280,8 +280,3 @@ $ yarn electron-pack # or npm run electron-pack
 
 <h3>📋 License: </h3>
 Licensed under the <a href="https://github.com/soulehshaikh99/create-cuttlebelle-electron-app/blob/master/LICENSE">MIT License</a>.
-
-yarn init
-yarn add --dev cuttlebelle
-cuttlebelle init
-cuttlebelle
