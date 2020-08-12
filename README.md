@@ -226,7 +226,7 @@ app.on('activate', function () {
 // code. You can also put them in separate files and require them here.
 ```
 
-#### 12) Add scripts
+#### 12) Add scripts in package.json
 
 ```bash
 "scripts": {
