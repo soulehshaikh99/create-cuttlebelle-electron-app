@@ -36,7 +36,7 @@ The aim of this project is to provide Web Developers using `cuttlebelle` the pow
 
 ## 🚀 Getting Started
 
-**Note:** If you wish to use npm over yarn then modify package.json by replacing `yarn` with `npm` in `electron-dev` and `preelectron-pack` scripts.
+**Note:** If you wish to use npm over yarn then modify `package.json` by replacing `yarn` with `npm` in `electron-dev` and `preelectron-pack` scripts.
 But I strongly recommend using <em>yarn</em> as it is a better choice when compared to <em>npm</em>.
 
 ### 🤓 Use this boilerplate
@@ -82,28 +82,29 @@ $ cd create-cuttlebelle-electron-app
 $ yarn init # or npm init
 ```
 
-#### 4) Initialize project directory using cuttlebelle cli.
+#### 4) Initialize project directory using cuttlebelle.
 
 ```bash
 $ cuttlebelle init
 ```
 
-#### 5) Download the app icon
-
-[favicon.png](https://raw.githubusercontent.com/soulehshaikh99/create-cuttlebelle-electron-app/master/assets/favicon.png) and place it in the assets directory.
-
-#### 6) Install Development Dependencies
+#### 5) Install Development Dependencies
 
 ```bash
 $ yarn add --dev electron electron-builder wait-on concurrently
 # npm i -D electron electron-builder wait-on concurrently
 ```
 
-#### 7) Install Production Dependency
+#### 6) Install Production Dependency
 
 ```bash
 $ yarn add electron-serve # or npm i electron-serve
 ```
+
+#### 7) Download the app icon
+
+[favicon.png](https://raw.githubusercontent.com/soulehshaikh99/assets/master/framework-icons/cuttlebelle/favicon.png) and place it in the assets directory.
+
 
 #### 8) Your dependencies should look something like this
 
@@ -119,10 +120,11 @@ $ yarn add electron-serve # or npm i electron-serve
 },
 ```
 
-#### 9) Paste cuttlebelle configuration in package.json file
+#### 9) Paste cuttlebelle configuration in `package.json` file
 
 ```bash
-# Adding this configuration makes sure the browser will not automatically open http://localhost:8080/.
+# Adding this configuration makes sure the browser will not 
+# automatically open http://localhost:8080/.
 "cuttlebelle": {
   "site": {
     "browserSync": {
@@ -226,7 +228,7 @@ app.on('activate', function () {
 // code. You can also put them in separate files and require them here.
 ```
 
-#### 12) Add scripts in package.json
+#### 12) Add scripts in `package.json`
 
 ```bash
 "scripts": {
@@ -240,19 +242,22 @@ app.on('activate', function () {
 }
 ```
 
-#### 13) Add the following Electron Configuration in package.json
+#### 13) Add the following configuration in `package.json`
 
 **Note:** build configuration is used by electron-builder, modify it if you wish to add more packaging and native distribution options for different OS Platforms.
 
 ```bash
-"main": "main.js", # please verify entry point is set to main.js 
+"main": "main.js",  // Application Entry Point, please verify entry point is set to main.js 
 "build": {
   "icon": "assets/favicon.png",
   "productName": "Cuttlebelle and Electron App",
   "files": [
     "site/**/*",
     "main.js"
-  ]
+  ],
+  "win": {},  // Windows Specific Configuration
+  "linux": {},  // Linux Specific Configuration
+  "mac": {}  // MacOs Specific Configuration
 }
 ```
 
