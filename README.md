@@ -64,18 +64,20 @@ $ yarn electron-pack # or npm run electron-pack
 ### 💫 Create this boilerplate from scratch (Manual Setup)
 
 #### 1) Start by installing `cuttlebelle` globally
+
 ```bash
 $ yarn global add cuttlebelle
 # npm i -g cuttlebelle
 ``` 
 
 #### 2) Create a project directory and switch location to it.
+
 ```bash
 $ mkdir create-cuttlebelle-electron-app
 $ cd create-cuttlebelle-electron-app
 ```
 
-#### 3) Initailize project with your favourite package manager
+#### 3) Initialize project with your favorite package manager
 
 ```bash
 # set entry point to main.js
@@ -101,12 +103,7 @@ $ yarn add --dev electron electron-builder wait-on concurrently
 $ yarn add electron-serve # or npm i electron-serve
 ```
 
-#### 7) Download the app icon
-
-[favicon.png](https://raw.githubusercontent.com/soulehshaikh99/assets/master/framework-icons/cuttlebelle/favicon.png) and place it in the assets directory.
-
-
-#### 8) Your dependencies should look something like this
+#### 7) Your dependencies should look something like this
 
 ```json
 "dependencies": {
@@ -119,6 +116,10 @@ $ yarn add electron-serve # or npm i electron-serve
   "wait-on": "^5.2.0"
 },
 ```
+
+#### 8) Download the app icon
+
+[favicon.png](https://raw.githubusercontent.com/soulehshaikh99/assets/master/framework-icons/cuttlebelle/favicon.png) and place it in the assets directory.
 
 #### 9) Paste cuttlebelle configuration in `package.json` file
 
@@ -247,7 +248,7 @@ app.on('activate', function () {
 **Note:** build configuration is used by electron-builder, modify it if you wish to add more packaging and native distribution options for different OS Platforms.
 
 ```bash
-"main": "main.js",  // Application Entry Point, please verify entry point is set to main.js 
+"main": "main.js",  # Application Entry Point, please verify entry point is set to main.js 
 "build": {
   "icon": "assets/favicon.png",
   "productName": "Cuttlebelle and Electron App",
@@ -255,9 +256,9 @@ app.on('activate', function () {
     "site/**/*",
     "main.js"
   ],
-  "win": {},  // Windows Specific Configuration
-  "linux": {},  // Linux Specific Configuration
-  "mac": {}  // MacOs Specific Configuration
+  "win": {},  # Windows Specific Configuration
+  "linux": {},  # Linux Specific Configuration
+  "mac": {}  # MacOs Specific Configuration
 }
 ```
 
