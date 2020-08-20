@@ -19,7 +19,10 @@
     "files": [
       "site/**/*",
       "main.js"
-    ]
+    ],
+    "win": {},
+    "linux": {},
+    "mac": {}
   },
   "cuttlebelle": {
     "site": {
