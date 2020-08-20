@@ -45,7 +45,7 @@ But I strongly recommend using <em>yarn</em> as it is a better choice when compa
 # Clone the Project
 
 # Use degit scaffolding tool
-$ npx degit soulehshaikh99/create-cuttlebelle-electron-app create-svelte-electron-app
+$ npx degit soulehshaikh99/create-cuttlebelle-electron-app create-cuttlebelle-electron-app
 # or GitHub CLI Users
 $ gh repo clone https://github.com/soulehshaikh99/create-cuttlebelle-electron-app.git
 # or Normal Git Users
